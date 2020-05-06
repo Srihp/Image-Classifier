@@ -1,0 +1,13 @@
+The aim of this project is to understand the machine learning model used for image classification.
+
+In this project, we will classify the images based on weather the image is of a dog or a cat.
+
+We will break the data set as testing data and training data.
+
+we will first import the required libraries
+
+for this project, we will use the sequential classifier from the keras library.
+
+we will first train the model using the training data and then test the model with the testing data
+
+once done, we will try to analyse a image and allow the model to classify the image as either a dog or a cat.
