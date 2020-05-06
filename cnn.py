@@ -23,14 +23,14 @@ classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = [
 from keras.preprocessing.image import ImageDataGenerator
 train_datagen = ImageDataGenerator(rescale = 1./255,shear_range = 0.2,zoom_range = 0.2,horizontal_flip = True)
 test_datagen = ImageDataGenerator(rescale = 1./255)
-training_set = train_datagen.flow_from_directory('face_age/training_set',target_size = (64, 64),batch_size = 32,class_mode = 'sparse')
-test_set = test_datagen.flow_from_directory('face_age/test_set',
+training_set = train_datagen.flow_from_directory('dataset/training_set',target_size = (64, 64),batch_size = 32,class_mode = 'sparse')
+test_set = test_datagen.flow_from_directory('dataset/test_set',
 target_size = (64, 64),batch_size = 32,class_mode = 'sparse')
 classifier.fit_generator(training_set,steps_per_epoch = 8000,epochs = 1,validation_data = test_set,validation_steps = 2000)
 # Part 3 - Making new predictions
 import numpy as np
 from keras.preprocessing import image
-test_image = image.load_img('face_age/single_prediction/face.jpg', target_size = (64, 64))
+test_image = image.load_img('/single_prediction/cat_or_dog_1.jpg', target_size = (64, 64))
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis = 0)
 result = classifier.predict(test_image)
